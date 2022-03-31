@@ -7,5 +7,5 @@ You can choose:
 - using the outlyingness measure or convert it to a depth measure,
 - choose the L-norm used to calculate the variation of directions.
 
-Secondly, after the dimensionality reduction is done, the method classifies the observations using the DD-plot, where you can choose between 3 different methods for multivariate data (KNN, SVM and QDA).
+Secondly, after the dimensionality reduction is done, the method classifies the observations using the DD-plot, where you can choose between 3 different classifiers for multivariate data (KNN, SVM and QDA).
 
