@@ -47,7 +47,7 @@ dirOut <- function(test, train, outly.method, L.norm, depth) {
 }
 
 
-dirOutClass <- function(test, train, y, outly.method="SDO", classifier="knn", L.norm=2, depth=FALSE, out.dev=TRUE) {
+dirOutClass <- function(test, train, y, outly.method="SDO", classifier="knn", L.norm=2, depth=FALSE, out.var=TRUE) {
  
   pTrain <- dim(train)[1]
   pTest <- dim(test)[1]
@@ -69,7 +69,7 @@ dirOutClass <- function(test, train, y, outly.method="SDO", classifier="knn", L.
   
   ### Classify 
   if (classifier=="svm") {
-    if (out.dev==FALSE) {
+    if (out.var==FALSE) {
       model <- svm(out_avrTrain,y)
       predictions <- predict(model, out_avrTest)
     }
@@ -79,7 +79,7 @@ dirOutClass <- function(test, train, y, outly.method="SDO", classifier="knn", L.
     }
   }
   else if (classifier=="qda") {
-    if (out.dev==FALSE) {
+    if (out.var==FALSE) {
       model <- qda(out_avrTrain,y)
       predictions <- predict(model, out_avrTest)$class
     }
@@ -89,7 +89,7 @@ dirOutClass <- function(test, train, y, outly.method="SDO", classifier="knn", L.
     }
   }
   else if (classifier=="knn") {
-    if (out.dev==FALSE) {
+    if (out.var==FALSE) {
       predictions <- knn(out_avrTrain,out_avrTest,y,k=floor(sqrt(pTrain)))
     }
     else {
